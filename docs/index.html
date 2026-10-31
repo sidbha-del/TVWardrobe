@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TVWardrobe: one launcher for your TV, many looks</title>
+<meta name="description" content="TVWardrobe is a lightweight Android TV launcher with five switchable styles: Classic, Glass, List Style, Arcade with a built-in game, and a retro N-in-1 console menu.">
+<style>
+  :root {
+    --bg: #0b0d14; --panel: #151926; --line: #262c40; --text: #f2f4fa; --muted: #a7aec4; --accent: #7cf0c8; --accent2: #8f9bff;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: #f6f7fb; --panel: #ffffff; --line: #dfe3ee; --text: #151926; --muted: #55607c; --accent: #0b8f6a; --accent2: #4552d6; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  header.hero { padding: 56px 0 32px; text-align: center; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin: 0 0 8px; letter-spacing: -0.02em; }
+  h1 span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tag { font-size: 1.2rem; color: var(--muted); margin: 0 auto 24px; max-width: 36rem; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); }
+  .btn.primary { background: var(--accent); color: #06231a; border-color: transparent; }
+  video { width: 100%; border-radius: 16px; border: 1px solid var(--line); background: #000; display: block; margin: 8px 0 4px; }
+  .note { color: var(--muted); font-size: .9rem; text-align: center; margin: 4px 0 0; }
+  section { padding: 36px 0 8px; }
+  h2 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .lead { color: var(--muted); margin: 0 0 20px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  figure img { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+  figcaption { padding: 12px 14px 14px; }
+  figcaption b { display: block; }
+  figcaption span { color: var(--muted); font-size: .92rem; }
+  .cards { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .card h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin: 6px 0; }
+  pre { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; overflow-x: auto; font-size: .9rem; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; font-size: .95rem; }
+  tr:last-child td { border-bottom: 0; }
+  footer { margin: 48px 0 32px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1><span>TVWardrobe</span></h1>
+    <p class="tag">One launcher for your TV, many looks. Pick a style, and only that style is loaded.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/sidbha-del/TVWardrobe/releases/latest">Download the APK</a>
+      <a class="btn" href="https://github.com/sidbha-del/TVWardrobe">View on GitHub</a>
+      <a class="btn" href="#install">How to install</a>
+    </div>
+  </header>
+
+  <video controls playsinline preload="metadata" poster="screenshots/glass-home.png">
+    <source src="media/styles-demo.mp4" type="video/mp4">
+  </video>
+  <p class="note">All five styles in 12 seconds. The sounds are the app's own effects.</p>
+
+  <section id="styles">
+    <h2>Five styles</h2>
+    <p class="lead">Switch any time from Controls, with a preview of each. Your choice is remembered.</p>
+    <div class="grid">
+      <figure><img src="screenshots/classic-home.png" alt="Classic style home screen" loading="lazy"><figcaption><b>Classic</b><span>Clock and weather, a hero for the focused app, Discover row and a Favorites dock.</span></figcaption></figure>
+      <figure><img src="screenshots/glass-home.png" alt="Glass style home screen" loading="lazy"><figcaption><b>Glass</b><span>Translucent capsules with bright rims, a big top-shelf card and a row of glass tiles.</span></figcaption></figure>
+      <figure><img src="screenshots/list-home.png" alt="List Style home screen" loading="lazy"><figcaption><b>List Style</b><span>A black text list with icons; the selection is a line above and below the row.</span></figcaption></figure>
+      <figure><img src="screenshots/arcade-home.png" alt="Arcade style home screen" loading="lazy"><figcaption><b>Arcade</b><span>A chomping strip, a high score and a built-in game called Mancap.</span></figcaption></figure>
+      <figure><img src="screenshots/retro-home.png" alt="Retro Console style home screen" loading="lazy"><figcaption><b>Retro Console</b><span>An "N in 1" cart menu where N is your app count, with a little robot running along the top.</span></figcaption></figure>
+      <figure><img src="screenshots/arcade-game.png" alt="The Mancap game" loading="lazy"><figcaption><b>Mancap</b><span>An original maze game for remote or mouse, with sound and a saved high score.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>More screens</h2>
+    <div class="grid">
+      <figure><img src="screenshots/glass-all-apps.png" alt="All Apps in the Glass style" loading="lazy"><figcaption><b>All Apps</b><span>Recent on top, category tabs, and Find games for Play Store search.</span></figcaption></figure>
+      <figure><img src="screenshots/style-picker.png" alt="The style picker" loading="lazy"><figcaption><b>Style picker</b><span>A preview card for every style.</span></figcaption></figure>
+      <figure><img src="screenshots/weather.png" alt="The weather page" loading="lazy"><figcaption><b>Weather</b><span>Now, the next hours and five days. Click the clock to open it.</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+    <div class="cards">
+      <div class="card"><h3>Light</h3><p>Only the chosen style is composed, and only Classic fetches Discover.</p></div>
+      <div class="card"><h3>Remote or mouse</h3><p>Everything works with a D-pad; hover, click and wheel work too.</p></div>
+      <div class="card"><h3>Sounds</h3><p>Each style has its own, synthesized in the app. One switch turns them off.</p></div>
+      <div class="card"><h3>Reversible</h3><p>Nothing is uninstalled. Switch back to the stock home screen any time.</p></div>
+    </div>
+  </section>
+
+  <section id="compat">
+    <h2>Compatibility</h2>
+    <p class="lead">Tested on one TCL Android TV (Android 11, 720p). Everything else is an expectation, not a promise.</p>
+    <table>
+      <tr><th>Device</th><th>Expectation</th></tr>
+      <tr><td>Android TV OS 9+ (TCL, Sony, Philips, Hisense, Xiaomi, Nvidia Shield, most TV boxes)</td><td>Should install and run. Becoming the Home screen may need extra steps; some stock launchers ignore the default-home setting.</td></tr>
+      <tr><td>Google TV</td><td>Installs and runs as an app. Replacing Home depends on the firmware.</td></tr>
+      <tr><td>Fire TV</td><td>Not supported.</td></tr>
+    </table>
+  </section>
+
+  <section id="install">
+    <h2>Install</h2>
+    <p class="lead">Download the APK from the <a href="https://github.com/sidbha-del/TVWardrobe/releases/latest">latest release</a> (signed with the debug key, for sideloading).</p>
+    <ol>
+      <li>On the TV: Settings &gt; Device Preferences &gt; About, tap <em>Build</em> seven times, then enable USB or network debugging in Developer options. Note the TV's IP address.</li>
+      <li>On a PC with Android platform-tools:
+<pre>adb connect &lt;tv-ip&gt;:5555
+adb install -r TVWardrobe-1.0.0.apk</pre></li>
+      <li>Open <em>TVWardrobe</em> from the app list. Press Home; if the TV offers a choice of Home app, pick it and choose "Always". Otherwise:
+<pre>adb shell cmd package set-home-activity com.sidbh.tvlauncher/.MainActivity</pre></li>
+    </ol>
+    <p>No PC? Copy the APK to a USB drive and open it with a file manager on the TV. It runs as a normal app; making it the Home screen still needs adb. The <a href="https://github.com/sidbha-del/TVWardrobe#making-it-the-home-screen">README</a> covers the stock launcher and how to switch back.</p>
+  </section>
+
+  <footer>
+    <p>TVWardrobe is open source under the <a href="https://github.com/sidbha-del/TVWardrobe/blob/main/LICENSE">Apache License 2.0</a>. The Arcade and Retro artwork is original; "Mancap" and "Atario" are playful names with no affiliation to any company. App logos shown in screenshots belong to their owners. Android TV, Google TV, Play Store and YouTube are trademarks of Google LLC; this project is not affiliated with or endorsed by Google or any TV maker. Weather by <a href="https://open-meteo.com">Open-Meteo</a>.</p>
+  </footer>
+</div>
+</body>
+</html>
